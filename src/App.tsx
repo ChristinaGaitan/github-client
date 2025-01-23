@@ -1,5 +1,9 @@
 import React from "react";
 import { WelcomeWindow } from "./WelcomeWindow";
+import { Issues } from "./Issues";
+import { Repositories } from "./Repositories";
+import { PullRequests } from "./PullRequests";
+import { Route, Switch } from "react-router";
 
 export const App = () => {
   return (
@@ -8,7 +12,12 @@ export const App = () => {
         bg: "#0000ff",
       }}
     >
-      <WelcomeWindow />
+      <Switch>
+        <Route exact path="/" component={WelcomeWindow} />
+        <Route path="/issues" component={Issues} />
+        <Route path="/repositories" component={Repositories} />
+        <Route path="/pull-requests" component={PullRequests} />
+      </Switch>
     </blessed-box>
   );
 };
