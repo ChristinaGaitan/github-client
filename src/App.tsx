@@ -4,6 +4,7 @@ import { Issues } from "./Issues";
 import { Repositories } from "./Repositories";
 import { PullRequests } from "./PullRequests";
 import { Route, Switch } from "react-router";
+import { Header } from "./Header";
 
 export const App = () => {
   return (
@@ -12,6 +13,7 @@ export const App = () => {
         bg: "#0000ff",
       }}
     >
+      <Header />
       <Switch>
         <Route exact path="/" component={WelcomeWindow} />
         <Route path="/issues" component={Issues} />
