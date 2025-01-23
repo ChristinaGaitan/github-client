@@ -1,13 +1,14 @@
 import React from "react";
-import blessed from "blessed"
-import { render } from "react-blessed"
-import * as dotenv from "dotenv"
-import { App } from "./App"
-import { MemoryRouter } from "react-router"
+import blessed from "blessed";
+import { render } from "react-blessed";
+import * as dotenv from "dotenv";
+import { App } from "./App";
+import { MemoryRouter } from "react-router";
+import { ClientProvider } from "./auth/ClientProvider";
 
-global.console = require("inspector").console
+global.console = require("inspector").console;
 
-dotenv.config()
+dotenv.config();
 
 const screen = blessed.screen({
   autoPadding: true,
@@ -18,15 +19,17 @@ const screen = blessed.screen({
     color: "black",
     shape: "underline",
     artificial: true,
-    blink: true
-  }
-})
+    blink: true,
+  },
+});
 
-screen.key(["q", "C-c"], () => process.exit(0))
+screen.key(["q", "C-c"], () => process.exit(0));
 
 render(
   <MemoryRouter>
-    <App />
+    <ClientProvider>
+      <App />
+    </ClientProvider>
   </MemoryRouter>,
-  screen
-)
+  screen,
+);
