@@ -14,8 +14,8 @@ export const IssuesMain = () => {
     const goToNew = () => history.push(`${match.url}/new`);
     const goToList = () => history.push(`${match.url}/list`);
 
-    ref.current.key("c", () => goToNew);
-    ref.current.key("l", () => goToList);
+    ref.current.key("c", goToNew);
+    ref.current.key("l", goToList);
 
     return () => {
       ref.current.unkey("c", goToNew);
