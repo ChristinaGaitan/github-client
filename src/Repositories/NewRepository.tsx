@@ -82,8 +82,8 @@ export const NewRepository = () => {
         {(triggerSubmit) => {
           return (
             <>
-              <Field top={0} label="Name" onSubmit={triggerSubmit} />
-              <Field top={1} label="Description" onSubmit={triggerSubmit} />
+              <Field top={0} label="Name: " onSubmit={triggerSubmit} />
+              <Field top={1} label="Description: " onSubmit={triggerSubmit} />
             </>
           );
         }}

@@ -2,8 +2,7 @@ import React from "react";
 import { Route, Switch, useRouteMatch } from "react-router";
 import { IssuesMain } from "./IssuesMain";
 import { IssuesList } from "./IssuesList";
-
-const NewIssue = () => <>New Issue</>;
+import { NewIssue } from "./NewIssue";
 
 export const Issues = () => {
   const match = useRouteMatch();
