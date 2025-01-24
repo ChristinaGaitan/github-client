@@ -11,21 +11,19 @@ export const PullRequestsMain = () => {
   const history = useHistory();
   const match = useRouteMatch();
 
-  const goToNew = () =>
-    useCallback(
-      debounce(() => history.push(`${match.url}/new`), 100),
-      [],
-    );
-  const goToList = () =>
-    useCallback(
-      debounce(() => history.push(`${match.url}/list`), 100),
-      [],
-    );
+  const goToNew = useCallback(
+    debounce(() => history.push(`${match.url}/new`), 100),
+    [],
+  );
+
+  const goToList = useCallback(
+    debounce(() => history.push(`${match.url}/list`), 100),
+    [],
+  );
 
   useEffect(() => {
     ref.current.key("c", goToNew);
     ref.current.key("l", goToList);
-
     return () => {
       ref.current.unkey("c", goToNew);
       ref.current.unkey("l", goToList);
